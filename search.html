@@ -25,6 +25,58 @@
           border: solid rgb(127, 7, 27);
       }
   </style>
+
+<script>
+
+
+
+    var ids = [];
+    var triesCount = 0;
+    var animalLocation = 13;
+    var distanceOfAnimal = "unknown"
+    for (var i = 0; i < 24; i++) {
+        ids.push("img-" + i)
+    }
+
+
+    function check(index) {
+        let id = ids[index];
+        if (index == animalLocation) {
+            document.getElementById(id).src = "animals.jpg";
+        } else {
+            document.getElementById(id).src = "soil.jpg";
+        }
+
+
+        triesCount++;
+        document.getElementById("tries").innerHTML = "Number of triesis " + triesCount;
+        distanceOfAnimal = distance(index, animalLocation);
+
+        document.getElementById("distance").innerHTML = "Distance is " + distanceOfAnimal;
+    }
+    function distance(pos1, pos2) {
+        var columm = 6;
+        var valueToaddsub = pos1 <= animalLocation ? columm : -columm;
+        var verticalDist = 0;
+        var horizantalDist = 0;
+        var minRange = Math.abs(animalLocation / columm) * columm;
+        var maxRange = minRange + (columm)
+        while (true) {
+
+            Math.abs(animalLocation - pos1)
+            if (minRange <= pos1 && pos1 < maxRange) {
+                horizantalDist = Math.abs(animalLocation - pos1);
+                break;
+            }
+            else {
+                pos1 = pos1 + valueToaddsub;
+                verticalDist = verticalDist + 1;
+            }
+        }
+
+        return Math.max(verticalDist, horizantalDist);
+    }
+</script>
 </head>
 <body>
     <p>Click on the squares to search for wild life</p>
@@ -32,41 +84,37 @@
 <p id="distance">Distance is unknown.</p>
 <div class="container">
     <div class="row">
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-0" onclick="check(0)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-1" onclick="check(1)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>        
+        <div class="col-sm-2"><img id="img-2" onclick="check(2)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-3" onclick="check(3)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-4" onclick="check(4)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-5" onclick="check(5)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
     </div>
-    <br>
     <div class="row">
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-6" onclick="check(6)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-7" onclick="check(7)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>        
+        <div class="col-sm-2"><img id="img-8" onclick="check(8)"src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-9" onclick="check(9)"src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-10" onclick="check(10)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-11" onclick="check(11)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
     </div>
-    <br>
     <div class="row">
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-12" onclick="check(12)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-13" onclick="check(13)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>        
+        <div class="col-sm-2"><img id="img-14" onclick="check(14)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-15" onclick="check(15)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-16" onclick="check(16)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-17" onclick="check(17)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
     </div>
-    <br>
     <div class="row">
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
-        <div class="col-sm-2"><img src="Tree.jpg" alt="Tree" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-18" onclick="check(18)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-19" onclick="check(19)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>        
+        <div class="col-sm-2"><img id="img-20" onclick="check(20)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-21" onclick="check(21)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-22" onclick="check(22)" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
+        <div class="col-sm-2"><img id="img-23" onclick="check(23);" src="tree.jpg" alt="plant" style="width: 200px;height: 200px;"></div>
     </div>
-</div>
 
 </body>
 </html>
